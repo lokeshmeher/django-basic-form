@@ -5,5 +5,9 @@
 
 
 {% block content %}
-Login page.
+<form action="{% url 'formapp:login' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Login">
+</form>
 {% endblock %}
