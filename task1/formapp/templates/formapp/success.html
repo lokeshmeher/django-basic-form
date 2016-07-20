@@ -5,6 +5,12 @@
 
 
 {% block content %}
-Successfully submitted information.
-<a href="{% url 'formapp:home' %}">Submit another form</a>
+<p>
+    <div align="center">
+        Submitted successfully.
+    </div>
+    <div align="center">
+        <a href="{% url 'formapp:home' %}">Submit another form</a>
+    </div>
+</p>
 {% endblock %}
