@@ -1,0 +1,16 @@
+{% extends 'formapp/base.html' %}
+
+
+{% block head_title %} Register done {% endblock %}
+
+
+{% block content %}
+<p>
+    <div align="center">
+        <strong>Successfully registered.</strong>
+    </div>
+    <div align="center">
+        <a href="{% url 'formapp:login' %}"><strong>Click here to login</strong></a>
+    </div>
+</p>
+{% endblock %}

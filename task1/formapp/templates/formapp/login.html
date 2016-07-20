@@ -7,12 +7,18 @@
 
 
 {% block content %}
-<form action="{% url 'formapp:login' %}" method="post">
-    {% csrf_token %}
-    <div class="col-sm-4 col-sm-offset-4">
-        {{ form|crispy }}
-        <input class="btn btn-primary" type="submit" value="Login">
-    </div>
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
+<div class="row">
+    <form action="{% url 'formapp:login' %}" method="post">
+        {% csrf_token %}
+        <div class="col-sm-4 col-sm-offset-4">
+            {{ form|crispy }}
+            <input class="btn btn-primary" type="submit" value="Login">
+        </div>
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+</div>
+<br>
+<div class="row">
+    <p align="center"><strong>Don't have an account yet? <a href="{% url 'formapp:register' %}">Sign up</a></strong></p>
+</div>
 {% endblock %}
