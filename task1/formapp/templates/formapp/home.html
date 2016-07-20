@@ -1,13 +1,17 @@
 {% extends 'formapp/base.html' %}
 
+{% load crispy_forms_tags %}
+
 
 {% block head_title %} Fill the form {% endblock %}
 
 
 {% block content %}
-<form action="{% url 'formapp:home' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_table }}
-    <input type="submit" value="Submit">
-</form>
+<div class="col-sm-6 col-sm-offset-3">
+    <form action="{% url 'formapp:home' %}" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Submit">
+    </form>
+</div>
 {% endblock %}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'formapp.apps.FormappConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -123,3 +124,5 @@ STATIC_URL = '/static/'
 
 
 LOGIN_REDIRECT_URL = '/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
