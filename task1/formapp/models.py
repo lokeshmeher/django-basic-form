@@ -1,9 +1,11 @@
 from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
+@python_2_unicode_compatible
 class ShoppingChoice(models.Model):
     PRICE_RANGE_CHOICES = (
         ('<500', 'less than 500'),
@@ -19,3 +21,6 @@ class ShoppingChoice(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(90)]
     )
     end_date = models.DateField()
+
+    def __str__(self):
+        return self.submitted_by.username

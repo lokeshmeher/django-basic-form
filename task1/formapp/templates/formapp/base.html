@@ -11,11 +11,12 @@
         <link rel="stylesheet" href="{% static 'formapp/css/bootstrap.min.css' %}">
     </head>
     <body>
-        {% if user.is_authenticated %}
-            <p align="right"><a href="{% url 'formapp:logout' %}">Logout</a></p>
-        {% endif %}
-
+        <br>
         <div class="container">
+            {% if user.is_authenticated %}
+                <p align="right"><a class="btn btn-primary" href="{% url 'formapp:logout' %}">Logout</a></p>
+            {% endif %}
+
             {% block content %}
             {% endblock %}
         </div>

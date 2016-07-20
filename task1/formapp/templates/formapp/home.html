@@ -8,10 +8,13 @@
 
 {% block content %}
 <div class="col-sm-6 col-sm-offset-3">
+    <p align="center">
+        <strong>Please fill the form below.</strong>
+    </p>
     <form action="{% url 'formapp:home' %}" method="post">
         {% csrf_token %}
         {{ form|crispy }}
-        <input type="submit" value="Submit">
+        <input class="btn btn-primary" type="submit" value="Submit">
     </form>
 </div>
 {% endblock %}
