@@ -23,7 +23,6 @@ class CreateForm(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('formapp:login')
     model = ShoppingChoice
     form_class = ShoppingChoiceForm
-    # template_name = 'formapp/home.html'
     success_url = reverse_lazy('formapp:home')
 
     def form_valid(self, form):
