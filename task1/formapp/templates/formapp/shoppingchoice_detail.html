@@ -9,18 +9,46 @@
 	<a class="btn btn-default" href="{% url 'formapp:home' %}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to home</a>
 </div>
 
-<div class="row">
-	<p align="center">
-        <strong>Your choices</strong>
-    </p>
-</div>
-
-<div class="row">
-	<div class="col-md-4">
-		{{ shoppingchoice }}
+<div align="center">
+	<div class="row">
+		<div class="col-md-4 text-right">
+			<label for="shop_name">Shop name: </label>
+		</div>
+		<div class="col-md-8 text-left" id="shop_name">
+			{{ shoppingchoice.shop_name }}
+		</div>
 	</div>
-	<div class="col-md-8">
-		{{ shoppingchoice }}
+
+	<div class="row">
+		<div class="col-md-4 text-right">
+			<label for="price_range">Price range: </label>
+		</div>
+		<div class="col-md-8 text-left" id="price_range">
+			{{ shoppingchoice.price_range }}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4 text-right">
+			<label for="discount_percent">Discount percent: </label>
+		</div>
+		<div class="col-md-8 text-left" id="discount_percent">
+			{{ shoppingchoice.discount_percent }} %
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4 text-right">
+			<label for="end_date">End date: </label>
+		</div>
+		<div class="col-md-8 text-left" id="end_date">
+			{{ shoppingchoice.end_date }}
+		</div>
+	</div>
+
+	<div class="row">
+		<a class="btn btn-default" href="{% url 'formapp:update' pk=shoppingchoice.pk %}">Update</a>
+		<a class="btn btn-default" href="{% url 'formapp:delete' pk=shoppingchoice.pk %}">Delete</a>
 	</div>
 </div>
 {% endblock %}

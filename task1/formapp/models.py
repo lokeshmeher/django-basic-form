@@ -8,10 +8,10 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 @python_2_unicode_compatible
 class ShoppingChoice(models.Model):
     PRICE_RANGE_CHOICES = (
-        ('<500', 'less than 500'),
-        ('500-1000', '500 to 1000'),
-        ('1000-2000', '1000 to 2000'),
-        ('>2000', 'over 2000'),
+        ('less than 500', 'less than 500'),
+        ('500 to 1000', '500 to 1000'),
+        ('1000 to 2000', '1000 to 2000'),
+        ('over 2000', 'over 2000'),
     )
     submitted_by = models.ForeignKey(User, on_delete=models.CASCADE)
     shop_name = models.CharField(max_length=100)

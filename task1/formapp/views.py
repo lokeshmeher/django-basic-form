@@ -30,35 +30,32 @@ class Home(LoginRequiredMixin, ListView):
         return ShoppingChoice.objects.filter(submitted_by=self.request.user)
 
 
-class ShowForm(LoginRequiredMixin, DetailView):
-    login_url = reverse_lazy('formapp:login')
-    model = ShoppingChoice
-
-
-class CreateForm(LoginRequiredMixin, CreateView):
+class CreateChoice(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('formapp:login')
     model = ShoppingChoice
     form_class = ShoppingChoiceForm
+    template_name_suffix = '_create_form'
     success_url = reverse_lazy('formapp:home')
 
     def form_valid(self, form):
         form.instance.submitted_by = self.request.user
-        return super(CreateForm, self).form_valid(form)
+        return super(CreateChoice, self).form_valid(form)
 
 
-class UpdateForm(LoginRequiredMixin, UpdateView):
-    # login_url = reverse_lazy('formapp:login')
-    # model = ShoppingChoice
-    # form_class = ShoppingChoiceForm
-    # template_name = 'formapp/home.html'
-    pass
+class RetrieveChoice(LoginRequiredMixin, DetailView):
+    login_url = reverse_lazy('formapp:login')
+    model = ShoppingChoice
 
 
-class DeleteForm(LoginRequiredMixin, DeleteView):
-    # login_url = reverse_lazy('formapp:login')
-    # model = ShoppingChoice
-    pass
+class UpdateChoice(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('formapp:login')
+    model = ShoppingChoice
+    form_class = ShoppingChoiceForm
+    template_name_suffix = '_update_form'
+    success_url = reverse_lazy('formapp:retrieve', kwargs={'pk': self.get_object().pk})
 
 
-# class SuccessView(TemplateView):
-#     template_name = 'formapp/success.html'
+class DeleteChoice(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('formapp:login')
+    model = ShoppingChoice
+    success_url = reverse_lazy('formapp:home')
