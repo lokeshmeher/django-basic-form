@@ -1,0 +1,26 @@
+{% extends 'formapp/base.html' %}
+
+
+{% block head_title %} View choice {% endblock %}
+
+
+{% block content %}
+<div class="row">
+	<a class="btn btn-default" href="{% url 'formapp:home' %}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to home</a>
+</div>
+
+<div class="row">
+	<p align="center">
+        <strong>Your choices</strong>
+    </p>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		{{ shoppingchoice }}
+	</div>
+	<div class="col-md-8">
+		{{ shoppingchoice }}
+	</div>
+</div>
+{% endblock %}

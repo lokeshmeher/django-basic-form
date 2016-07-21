@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 
-{% block head_title %} Submit a form {% endblock %}
+{% block head_title %} Submit a choice {% endblock %}
 
 
 {% block content %}
@@ -11,7 +11,7 @@
     <p align="center">
         <strong>Your choices</strong>
     </p>
-    <form action="{% url 'formapp:home' %}" method="post">
+    <form action="{% url 'formapp:create' %}" method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <input class="btn btn-primary" type="submit" value="Submit">

@@ -10,14 +10,14 @@
 </div>
 
 <div class="row">
-    {% if object_list %}
+    {% if shoppingchoice_list %}
         <h3>Your submitted shopping choices</h3>
     {% endif %}
 </div>
 
 <ul>
 {% for choice_form in shoppingchoice_list %}
-    <li><a href="{% url 'formapp:update' pk=choice_form.pk %}">{{ choice_form }}</a></li>
+    <li><a href="{% url 'formapp:retrieve' pk=choice_form.pk %}">{{ choice_form }}</a></li>
 {% empty %}
     <p align="center">You haven't submitted any choices yet.</p>
 {% endfor %}

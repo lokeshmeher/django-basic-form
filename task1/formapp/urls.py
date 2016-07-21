@@ -9,8 +9,9 @@ app_name = 'formapp'
 urlpatterns = [
     url(r'^$', views.Home.as_view(), name='home'),
     url(r'^create/$', views.CreateForm.as_view(), name='create'),
+    url(r'^view/(?P<pk>[0-9]+)/$', views.ShowForm.as_view(), name='retrieve'),
     url(r'^update/(?P<pk>[0-9]+)/$', views.UpdateForm.as_view(), name='update'),
-    # url(r'^delete/(?P<pk>[0-9]+)/$', views.DeleteForm.as_view(), name='delete'),
+    url(r'^delete/(?P<pk>[0-9]+)/$', views.DeleteForm.as_view(), name='delete'),
 
     url(r'^register/$', views.Register.as_view(), name='register'),
     url(r'^register/done/$', views.RegisterDone.as_view(), name='register_done'),

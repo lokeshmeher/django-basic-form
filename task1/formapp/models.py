@@ -23,4 +23,4 @@ class ShoppingChoice(models.Model):
     end_date = models.DateField()
 
     def __str__(self):
-        return self.submitted_by.shop_name[:20] + '... #' + str(self.id)
+        return self.shop_name[:20] + ('...' if len(self.shop_name)>20 else '')
