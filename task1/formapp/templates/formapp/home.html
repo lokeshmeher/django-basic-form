@@ -1,0 +1,25 @@
+{% extends 'formapp/base.html' %}
+
+
+{% block head_title %} Home {% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <a class="btn btn-default" href="{% url 'formapp:create' %}">Submit a choice</a>
+</div>
+
+<div class="row">
+    {% if object_list %}
+        <h3>Your submitted shopping choices</h3>
+    {% endif %}
+</div>
+
+<ul>
+{% for choice_form in shoppingchoice_list %}
+    <li><a href="{% url 'formapp:update' pk=choice_form.pk %}">{{ choice_form }}</a></li>
+{% empty %}
+    <p align="center">You haven't submitted any choices yet.</p>
+{% endfor %}
+</ul>
+{% endblock %}

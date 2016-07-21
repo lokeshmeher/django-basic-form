@@ -1,14 +1,17 @@
 {% extends 'formapp/base.html' %}
 
 
-{% block head_title %} Registration complete {% endblock %}
+{% block head_title %} Delete form {% endblock %}
 
 
 {% block content %}
 <p>
     <div align="center">
-        <strong>Successfully registered.</strong>
+        <strong>Are you sure you want to delete {{ form }}?</strong>
     </div>
+    <form action="{% url 'formapp:delete' %}" method="post">
+
+    </form>
     <div align="center">
         <a href="{% url 'formapp:login' %}"><strong>Click here to login</strong></a>
     </div>
