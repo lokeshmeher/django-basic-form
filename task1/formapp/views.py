@@ -25,15 +25,11 @@ class SuccessView(TemplateView):
     template_name = 'formapp/success.html'
 
 
-def register(request):
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('formapp:register_done'))
-    else:
-        form = RegisterForm()
-    return render(request, 'formapp/register.html', {'form': form})
+class RegisterView(CreateView):
+    model = User
+    form_class = RegisterForm
+    template_name = 'formapp/register.html'
+    success_url = reverse_lazy('formapp:register_done')
 
 
 class RegisterDoneView(TemplateView):
