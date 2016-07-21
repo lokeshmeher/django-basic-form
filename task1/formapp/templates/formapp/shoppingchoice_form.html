@@ -3,13 +3,13 @@
 {% load crispy_forms_tags %}
 
 
-{% block head_title %} Fill the form {% endblock %}
+{% block head_title %} Submit a form {% endblock %}
 
 
 {% block content %}
 <div class="col-sm-6 col-sm-offset-3">
     <p align="center">
-        <strong>Please fill the form below.</strong>
+        <strong>Your choices</strong>
     </p>
     <form action="{% url 'formapp:home' %}" method="post">
         {% csrf_token %}

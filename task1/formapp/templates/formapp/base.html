@@ -14,7 +14,9 @@
         <br>
         <div class="container">
             {% if user.is_authenticated %}
-                <p align="right"><a class="btn btn-primary" href="{% url 'formapp:logout' %}">Logout</a></p>
+                <div class="row">
+                    <p align="right"><a class="btn btn-primary" href="{% url 'formapp:logout' %}">Logout</a></p>
+                </div>
             {% endif %}
 
             {% block content %}

@@ -7,10 +7,14 @@ from . import views
 app_name = 'formapp'
 
 urlpatterns = [
-    url(r'^$', views.HomeView.as_view(), name='home'),
-    url(r'^register/$', views.RegisterView.as_view(), name='register'),
-    url(r'^register/done/$', views.RegisterDoneView.as_view(), name='register_done'),
+    url(r'^$', views.Home.as_view(), name='home'),
+    url(r'^create/$', views.CreateForm.as_view(), name='create'),
+    url(r'^update/(?P<pk>[0-9]+)/$', views.UpdateForm.as_view(), name='update'),
+    # url(r'^delete/(?P<pk>[0-9]+)/$', views.DeleteForm.as_view(), name='delete'),
+
+    url(r'^register/$', views.Register.as_view(), name='register'),
+    url(r'^register/done/$', views.RegisterDone.as_view(), name='register_done'),
     url(r'^login/$', login, {'template_name': 'formapp/login.html'}, name='login'),
     url(r'^logout/$', logout_then_login, {'login_url': 'formapp:login'}, name='logout'),
-    url(r'^success/$', views.SuccessView.as_view(), name='success'),
+    #url(r'^success/$', views.SuccessView.as_view(), name='success'),
 ]
