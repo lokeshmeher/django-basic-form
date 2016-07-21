@@ -52,7 +52,9 @@ class UpdateChoice(LoginRequiredMixin, UpdateView):
     model = ShoppingChoice
     form_class = ShoppingChoiceForm
     template_name_suffix = '_update_form'
-    success_url = reverse_lazy('formapp:retrieve', kwargs={'pk': self.get_object().pk})
+
+    def get_success_url(self):
+        return reverse('formapp:retrieve', kwargs={'pk': self.object.pk})
 
 
 class DeleteChoice(LoginRequiredMixin, DeleteView):

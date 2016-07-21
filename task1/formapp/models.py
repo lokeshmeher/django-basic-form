@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.utils.encoding import python_2_unicode_compatible
+from django.core.urlresolvers import reverse_lazy
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -24,3 +25,6 @@ class ShoppingChoice(models.Model):
 
     def __str__(self):
         return self.shop_name[:20] + ('...' if len(self.shop_name)>20 else '')
+
+    def get_absolute_url(self):
+        return reverse_lazy()
