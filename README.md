@@ -1,2 +1,2 @@
-# winkl-task-1
-Repo for first task.
+# django-basicc-form
+Django app for basic CRUD(Create, Retrieve, Update, Delete) operations for user filled forms.
